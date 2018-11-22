@@ -35,11 +35,11 @@
                     <div>
                         <input name='password' type="password" class="form-control" placeholder="密码" required=""/>
                     </div>
-                        <#if error.isPresent()>
-                        <div class="clearfix">
-                            <p>用户名或密码错误，请重试！</p>
-                        </div>
-                        </#if>
+                <#if error.isPresent()>
+                    <div class="clearfix">
+                        <p>用户名或密码错误，请重试！</p>
+                    </div>
+                </#if>
                     <div>
                         <a class="btn btn-default submit" onclick="document.getElementById('subform').submit();">登录</a>
                     </div>

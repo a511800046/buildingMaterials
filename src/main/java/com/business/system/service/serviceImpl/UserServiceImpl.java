@@ -1,10 +1,10 @@
 package com.business.system.service.serviceImpl;
 
-import com.business.system.model.User;
-import com.common.util.BeanUtil;
 import com.business.system.dao.InfoUserDao;
+import com.business.system.model.User;
 import com.business.system.model.UserCreateForm;
 import com.business.system.service.UserService;
+import com.common.util.BeanUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

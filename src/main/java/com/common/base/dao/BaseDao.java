@@ -234,11 +234,11 @@ public class BaseDao {
      */
     @SuppressWarnings("rawtypes")
     public <T> T queryForModel(String sql, Object[] args, Class<T> cls) throws DataAccessException {
-        List<T> backVal=null;
+        List<T> backVal = null;
         Long stime = System.currentTimeMillis();
         String status = SqlConstants.faild;
         try {
-            backVal =this.jdbcTemplate.query(sql, args, new BeanPropertyRowMapper<>(cls));
+            backVal = this.jdbcTemplate.query(sql, args, new BeanPropertyRowMapper<>(cls));
             status = SqlConstants.successful;
         } catch (DataAccessException e) {
             throw e;
@@ -257,7 +257,7 @@ public class BaseDao {
      */
     @SuppressWarnings("rawtypes")
     public <T> T queryForModel(String sql, Class<T> cls) throws DataAccessException {
-        List<T> backVal=null;
+        List<T> backVal = null;
         Long stime = System.currentTimeMillis();
         String status = SqlConstants.faild;
         try {
@@ -347,7 +347,7 @@ public class BaseDao {
                                     if (args[i] instanceof String) {
                                         cs.setString(i + 1, String.valueOf(args[i]));// 设置输入参数的值
                                     } else {
-                                        cs.setObject(i + 1,  args[i]);// 设置输入参数的值
+                                        cs.setObject(i + 1, args[i]);// 设置输入参数的值
                                     }
                                 }
                             }

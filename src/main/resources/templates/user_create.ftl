@@ -21,11 +21,11 @@
 
     <div>
         <label for="userId">userId</label>
-        <input  name="userId" id="userId" value="${form.userId}" required autofocus/>
+        <input name="userId" id="userId" value="${form.userId}" required autofocus/>
     </div>
     <div>
         <label for="userName">userName</label>
-        <input  name="userName" id="userName" required/>
+        <input name="userName" id="userName" required/>
     </div>
     <div>
         <label for="password">Password</label>
