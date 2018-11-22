@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds" debug="false">
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <springProperty scope="context" name="logging.file" source="custom.logging.file"/>
+
+    <appender name="LOGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} - [%-5p] %-40.40logger{39}: %m%n</pattern>
+            <charset>utf8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.home}\logs\%d{yyyy-MM}\info-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>365</maxHistory>
+        </rollingPolicy>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="LOGFILE"/>
+    </root>
+    <!-- dev,test -->
+    <springProfile name="dev,test">
+        <logger name="com.product.judge" level="DEBUG"/>
+    </springProfile>
+    <!-- pro -->
+    <springProfile name="pro">
+        <logger name="org.springframework" level="WARN"/>
+    </springProfile>
+</configuration>
