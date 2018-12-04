@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @program: web_interface
+ * @program: BankInter
  * @description: 持久层基类
  * @author: chengy
  * @create: 2018-07-09 16:37
@@ -33,7 +33,7 @@ public class BaseDao {
 
 
     /**
-     * 执行sql返回查询出的一个字段并转换为String，此方法查询如果未查询出数据的话抛出异常
+     * 执行sql返回查询出的一个字段并转换为String
      *
      * @param sql 执行的sql
      * @return String
@@ -56,7 +56,7 @@ public class BaseDao {
     }
 
     /**
-     * 执行预编译sql返回查询出的一个字段并转换为String，此方法查询如果未查询出数据的话抛出异常
+     * 执行预编译sql返回查询出的一个字段并转换为String
      *
      * @param sql  执行的预编译sql
      * @param args 参数数组
@@ -347,7 +347,7 @@ public class BaseDao {
                                     if (args[i] instanceof String) {
                                         cs.setString(i + 1, String.valueOf(args[i]));// 设置输入参数的值
                                     } else {
-                                        cs.setObject(i + 1, args[i]);// 设置输入参数的值
+                                        cs.setDouble(i + 1, (Double) args[i]);// 设置输入参数的值
                                     }
                                 }
                             }
