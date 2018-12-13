@@ -24,7 +24,7 @@ public class LoginController {
     @RequestMapping("/")
     public String getHomePage() {
         LOGGER.info("Getting home page");
-        return "home";
+        return "index";
     }
 
 
