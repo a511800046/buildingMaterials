@@ -1,6 +1,7 @@
 package com.business.system.service.serviceImpl;
 
 import com.business.system.model.CurrentUser;
+import com.business.system.model.Role;
 import com.business.system.model.User;
 import com.business.system.service.UserService;
 import org.slf4j.Logger;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.security.AccessControlException;
 
 @Service
 public class CurrentUserDetailsService implements UserDetailsService {
@@ -26,7 +29,9 @@ public class CurrentUserDetailsService implements UserDetailsService {
         LOGGER.info("Authenticating user with userId={}", userId);
         User user = userService.getUserById(userId)
                 .orElseThrow(() -> new UsernameNotFoundException(String.format("User with userId=%s was not found", userId)));
-        return new CurrentUser(user);
+        Role role = userService.findUserRoleByUserPrimaryKey(user.getId()).
+                orElseThrow(() -> new AccessControlException(String.format("Role with userId=%s was not found", userId)));
+        return new CurrentUser(user, role);
     }
 
 }

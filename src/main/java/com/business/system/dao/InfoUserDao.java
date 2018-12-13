@@ -1,12 +1,12 @@
 package com.business.system.dao;
 
 
+import com.business.system.model.Role;
 import com.business.system.model.User;
 import com.common.base.dao.BaseDao;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @program: web_interface
@@ -18,14 +18,14 @@ import java.util.Map;
 @Repository("infoUserDao")
 public class InfoUserDao extends BaseDao {
 
-    public Map findUserInfoByUserId(String userId) {
+    public User findUserInfoByUserId(String userId) {
         String sql = "select * from info_user where user_id=?";
-        return super.queryForMap(sql, new Object[]{userId});
+        return super.queryForModel(sql, new Object[]{userId}, User.class);
     }
 
-    public List findUserRoleByUserPrimaryKey(String userId) {
+    public Role findUserRoleByUserPrimaryKey(String userId) {
         String sql = "select * from info_role where user_id=?";
-        return super.queryForList(sql, new Object[]{userId});
+        return super.queryForModel(sql, new Object[]{userId}, Role.class);
     }
 
     public List findAllUserInfo() {

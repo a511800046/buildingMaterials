@@ -1,6 +1,7 @@
 package com.business.system.service.serviceImpl;
 
 import com.business.system.dao.InfoUserDao;
+import com.business.system.model.Role;
 import com.business.system.model.User;
 import com.business.system.model.UserCreateForm;
 import com.business.system.service.UserService;
@@ -26,9 +27,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Optional<User> getUserById(String id) {
         LOGGER.info("Getting user={}", id);
-
-        Map<String, String> userMap = infoUserDao.findUserInfoByUserId(id);
-        User returnUser = BeanUtil.mapToBean(userMap, User.class);
+        User returnUser = infoUserDao.findUserInfoByUserId(id);
         return Optional.ofNullable(returnUser);
     }
 
@@ -51,6 +50,12 @@ public class UserServiceImpl implements UserService {
         user.setPassWord(form.getPassWord());
         user.setUserName(form.getUserName());
         return infoUserDao.saveUser(user);
+    }
+
+    @Override
+    public Optional<Role> findUserRoleByUserPrimaryKey(String id) {
+        LOGGER.info("Getting role={}", id);
+        return Optional.ofNullable(infoUserDao.findUserRoleByUserPrimaryKey(id));
     }
 
 }

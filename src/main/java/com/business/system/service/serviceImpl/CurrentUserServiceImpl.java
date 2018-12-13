@@ -1,7 +1,6 @@
 package com.business.system.service.serviceImpl;
 
 import com.business.system.model.CurrentUser;
-import com.business.system.model.Role;
 import com.business.system.service.CurrentUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +15,7 @@ public class CurrentUserServiceImpl implements CurrentUserService {
     public boolean canAccessUser(CurrentUser currentUser, String userId) {
         LOGGER.info("Checking if user={} has access to user={}", currentUser, userId);
         return currentUser != null
-                && (currentUser.getRole() == Role.ADMIN || currentUser.getId().equals(userId));
+                && (currentUser.getRole().equals("admin") || currentUser.getId().equals(userId));
     }
 
 

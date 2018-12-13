@@ -3,14 +3,24 @@ package com.business.system.model;
 
 public class User {
 
-
+    /**
+     * 32位UUID主键
+     */
     private String id;
 
-
+    /**
+     * 用户登陆ID
+     */
     private String userId;
 
+    /**
+     * 用户姓名
+     */
     private String userName;
 
+    /**
+     * 用户登陆密码
+     */
     private String passWord;
 
 
