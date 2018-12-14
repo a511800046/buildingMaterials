@@ -32,6 +32,7 @@ public class LoginController {
     public ModelAndView getLoginPage(@RequestParam Optional<String> error) {
         LOGGER.info("Getting login page");
         error.ifPresent(u -> LOGGER.info(u));
+
         return new ModelAndView("login", "error", error);
     }
 
