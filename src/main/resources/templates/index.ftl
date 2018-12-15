@@ -46,7 +46,7 @@
                 <!-- sidebar menu -->
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
-                        <h3>General</h3>
+                        <h3>菜单</h3>
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-home"></i> 进货管理 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
@@ -131,15 +131,12 @@
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                <li><a href="javascript:"> Profile</a></li>
                                 <li>
                                     <a href="javascript:">
-                                        <span class="badge bg-red pull-right">50%</span>
-                                        <span>Settings</span>
+                                        <span>修改密码</span>
                                     </a>
                                 </li>
-                                <li><a href="javascript:">Help</a></li>
-                                <li><a onclick="logout();"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                <li><a onclick="logout();"><i class="fa fa-sign-out pull-right"></i> 退出系统 </a></li>
                             </ul>
                         </li>
                     </ul>
@@ -163,6 +160,15 @@
 
                     <div class="col-md-3 col-sm-3 col-xs-6 tile">
                         <span>近七天出货量</span>
+                        <h2>231,809</h2>
+                        <span class="sparkline_one" style="height: 160px;">
+                      <canvas width="200" height="60"
+                              style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                  </span>
+                    </div>
+
+                    <div class="col-md-3 col-sm-3 col-xs-6 tile">
+                        <span>近七天销售额</span>
                         <h2>231,809</h2>
                         <span class="sparkline_one" style="height: 160px;">
                       <canvas width="200" height="60"
@@ -213,13 +219,13 @@
             <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->
-
+        <form action="/logout" method="post" id="logout">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        </form>
 
     </div>
 </div>
-<form action="/logout" method="post" id="logout">
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-</form>
+
 <!-- jQuery -->
 <script src="/vendors/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap -->

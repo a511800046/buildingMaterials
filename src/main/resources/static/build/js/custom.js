@@ -142,7 +142,7 @@ $MENU_TOGGLE.on('click', function() {
 			mouseWheel:{ preventDefault: true }
 		});
 	}
-};
+}
 // /Sidebar
 
 	var randNum = function() {
@@ -457,7 +457,7 @@ if (typeof NProgress != 'undefined') {
             tickColor: "rgba(51, 51, 51, 0.06)",
           },
           tooltip: false
-        }
+        };
 		
 		var chart_plot_02_settings = {
 			grid: {
@@ -584,10 +584,9 @@ if (typeof NProgress != 'undefined') {
 					fillColor: "#fff"
 				}
 			}], chart_plot_03_settings);
-			
-		};
-	  
-	} 
+
+        }
+    }
 	
 		
 	/* STARRR */
@@ -610,11 +609,10 @@ if (typeof NProgress != 'undefined') {
 		$('.stars-existing').on('starrr:change', function (e, value) {
 		  $('.stars-count-existing').html(value);
 		});
-		
-	  };
-	
-	
-	function init_JQVmap(){
+
+    }
+
+function init_JQVmap() {
 
 		//console.log('check init_JQVmap [' + typeof (VectorCanvas) + '][' + typeof (jQuery.fn.vectorMap) + ']' );	
 		
@@ -655,11 +653,10 @@ if (typeof NProgress != 'undefined') {
 				});
 			
 			}
-			
-	};
-			
-	    
-	function init_skycons(){
+
+}
+
+function init_skycons() {
 				
 			if( typeof (Skycons) === 'undefined'){ return; }
 			console.log('init_skycons');
@@ -723,7 +720,7 @@ if (typeof NProgress != 'undefined') {
 					legend: false, 
 					responsive: false 
 				}
-			}
+        };
 		
 			$('.canvasDoughnut').each(function(){
 				
@@ -797,9 +794,9 @@ if (typeof NProgress != 'undefined') {
 		}
 	
 	
-	}   
-	   	   
-	/* SPARKLINES */
+	}
+
+/*  */
 			
 		function init_sparklines() {
 			
@@ -913,11 +910,10 @@ if (typeof NProgress != 'undefined') {
 				width: '85',
 			});
 
-			
-		};   
-	   
-	   
-	   /* AUTOCOMPLETE */
+
+        }
+
+/* AUTOCOMPLETE */
 			
 		function init_autocomplete() {
 			
@@ -937,10 +933,10 @@ if (typeof NProgress != 'undefined') {
 			$('#autocomplete-custom-append').autocomplete({
 			  lookup: countriesArray
 			});
-			
-		};
-	   
-	 /* AUTOSIZE */
+
+        }
+
+/* AUTOSIZE */
 			
 		function init_autosize() {
 			
@@ -949,10 +945,10 @@ if (typeof NProgress != 'undefined') {
 			autosize($('.resizable_textarea'));
 			
 			}
-			
-		};  
-	   
-	   /* PARSLEY */
+
+        }
+
+/* PARSLEY */
 			
 		function init_parsley() {
 			
@@ -996,11 +992,10 @@ if (typeof NProgress != 'undefined') {
 			  try {
 				hljs.initHighlightingOnLoad();
 			  } catch (err) {}
-			
-		};
-	   
-		
-		  /* INPUTS */
+
+        }
+
+/* INPUTS */
 		  
 			function onAddTag(tag) {
 				alert("Added a tag: " + tag);
@@ -1024,10 +1019,10 @@ if (typeof NProgress != 'undefined') {
 				});
 				
 				}
-				
-		    };
-	   
-		/* SELECT2 */
+
+            }
+
+/* SELECT2 */
 	  
 		function init_select2() {
 			 
@@ -1044,10 +1039,10 @@ if (typeof NProgress != 'undefined') {
 			  placeholder: "With Max Selection limit 4",
 			  allowClear: true
 			});
-			
-		};
-	   
-	   /* WYSIWYG EDITOR */
+
+        }
+
+/* WYSIWYG EDITOR */
 
 		function init_wysiwyg() {
 			
@@ -1118,10 +1113,10 @@ if (typeof NProgress != 'undefined') {
 		
         window.prettyPrint;
         prettyPrint();
-	
-    };
-	  
-	/* CROPPER */
+
+        }
+
+/* CROPPER */
 		
 		function init_cropper() {
 			
@@ -1350,11 +1345,11 @@ if (typeof NProgress != 'undefined') {
 			} else {
 			  $inputImage.prop('disabled', true).parent().addClass('disabled');
 			}
-			
-			
-		};
-		
-		/* CROPPER --- end */  
+
+
+        }
+
+/* CROPPER --- end */
 	  
 		/* KNOB */
 	  
@@ -1459,10 +1454,10 @@ if (typeof NProgress != 'undefined') {
 					v = this.cv;
 				  }
 				});
-				
-		};
-	 
-		/* INPUT MASK */
+
+        }
+
+/* INPUT MASK */
 			
 		function init_InputMask() {
 			
@@ -1470,10 +1465,10 @@ if (typeof NProgress != 'undefined') {
 			console.log('init_InputMask');
 			
 				$(":input").inputmask();
-				
-		};
-	  
-		/* COLOR PICKER */
+
+        }
+
+/* COLOR PICKER */
 			 
 		function init_ColorPicker() {
 			
@@ -1493,11 +1488,10 @@ if (typeof NProgress != 'undefined') {
 				});
 
 				$('.demo-auto').colorpicker();
-			
-		}; 
-	   
-	   
-		/* ION RANGE SLIDER */
+
+        }
+
+/* ION RANGE SLIDER */
 			
 		function init_IonRangeSlider() {
 			
@@ -1564,11 +1558,10 @@ if (typeof NProgress != 'undefined') {
 				return m.format("Do MMMM, HH:mm");
 			  }
 			});
-			
-		};
-	   
-	   
-	   /* DATERANGEPICKER */
+
+        }
+
+/* DATERANGEPICKER */
 	   
 		function init_daterangepicker() {
 
@@ -1794,11 +1787,10 @@ if (typeof NProgress != 'undefined') {
 			$('.buttonNext').addClass('btn btn-success');
 			$('.buttonPrevious').addClass('btn btn-primary');
 			$('.buttonFinish').addClass('btn btn-default');
-			
-		};
-	   
-	   
-	  /* VALIDATOR */
+
+        }
+
+/* VALIDATOR */
 
 	  function init_validator () {
 		 
@@ -1832,19 +1824,18 @@ if (typeof NProgress != 'undefined') {
 
         return false;
 		});
-	  
-	  };
-	   
-	  	/* PNotify */
+
+      }
+
+/* PNotify */
 			
 		function init_PNotify() {
 			
 			if( typeof (PNotify) === 'undefined'){ return; }
 			console.log('init_PNotify');
-		}; 
-	   
-	   
-	   /* CUSTOM NOTIFICATION */
+        }
+
+/* CUSTOM NOTIFICATION */
 			
 		function init_CustomNotification() {
 			
@@ -1898,10 +1889,10 @@ if (typeof NProgress != 'undefined') {
 			  $('.notifications a').first().addClass('active');
 			  $('#notif-group div').first().css('display', 'block');
 			});
-			
-		};
-		
-			/* EASYPIECHART */
+
+        }
+
+/* EASYPIECHART */
 			
 			function init_EasyPieChart() {
 				
@@ -1957,11 +1948,10 @@ if (typeof NProgress != 'undefined') {
 					hide: 400
 				  }
 				});
-				
-			};
-	   
-		
-		function init_charts() {
+
+            }
+
+function init_charts() {
 			
 				console.log('run_charts  typeof [' + typeof (Chart) + ']');
 			
@@ -2374,10 +2364,10 @@ if (typeof NProgress != 'undefined') {
 			$('#compose, .compose-close').click(function(){
 				$('.compose').slideToggle();
 			});
-		
-		};
-	   
-	   	/* CALENDAR */
+
+        }
+
+/* CALENDAR */
 		  
 		    function  init_calendar() {
 					
@@ -2477,10 +2467,10 @@ if (typeof NProgress != 'undefined') {
 					url: 'http://google.com/'
 				  }]
 				});
-				
-			};
-	   
-		/* DATA TABLES */
+
+            }
+
+/* DATA TABLES */
 			
 			function init_DataTables() {
 				
@@ -2564,10 +2554,10 @@ if (typeof NProgress != 'undefined') {
 				});
 
 				TableManageButtons.init();
-				
-			};
-	   
-			/* CHART - MORRIS  */
+
+            }
+
+/* CHART - MORRIS  */
 		
 		function init_morris_charts() {
 			
@@ -2721,12 +2711,10 @@ if (typeof NProgress != 'undefined') {
 				});
 			
 			}
-			
-		};
-	   
-		
-		
-		/* ECHRTS */
+
+        }
+
+/* ECHRTS */
 	
 		
 		function init_echarts() {
