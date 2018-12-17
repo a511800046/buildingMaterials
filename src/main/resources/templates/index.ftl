@@ -208,16 +208,17 @@
 
 
             </div>
+
         </div>
         <!-- /page content -->
-
-        <!-- footer content -->
         <footer>
             <div class="pull-right">
                 Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
             </div>
             <div class="clearfix"></div>
         </footer>
+        <!-- footer content -->
+
         <!-- /footer content -->
         <form action="/logout" method="post" id="logout">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
