@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Optional;
 
 /**
- * @program: example-spring-boot-security
+ * @program: saleSystem
  * @description: 登陆页面跳转控制
  * @author: chengy
  * @create: 2018-11-14 09:18
@@ -22,11 +22,16 @@ public class LoginController {
     private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
 
     @RequestMapping("/")
-    public String getHomePage() {
-        LOGGER.info("Getting home page");
+    public String getIndexPage() {
+        LOGGER.info("Getting index page");
         return "index";
     }
 
+    @RequestMapping("/index")
+    public String getHomePage() {
+        LOGGER.info("Getting index page");
+        return "index";
+    }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView getLoginPage(@RequestParam Optional<String> error) {
@@ -35,5 +40,6 @@ public class LoginController {
 
         return new ModelAndView("login", "error", error);
     }
+
 
 }

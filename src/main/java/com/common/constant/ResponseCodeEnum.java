@@ -1,7 +1,7 @@
 package com.common.constant;
 
 /**
- * @program: web_interface
+ * @program: saleSystem
  * @description: 响应码和响应信息
  * @author: chengy
  * @create: 2018-07-09 16:37
@@ -13,7 +13,7 @@ public enum ResponseCodeEnum {
     private String ResponseMSG;
     private String ResponseCode;
 
-    private ResponseCodeEnum(String ResponseMSG, String ResponseCode) {
+    ResponseCodeEnum(String ResponseMSG, String ResponseCode) {
         this.ResponseMSG = ResponseMSG;
         this.ResponseCode = ResponseCode;
     }

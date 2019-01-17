@@ -2,7 +2,7 @@ package com.common.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.beans.BeanUtils;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * @program: example-spring-boot-security
+ * @program: saleSystem
  * @description: 转换工具类
  * @author: chengy
  * @create: 2018-11-14 09:18
@@ -39,6 +39,7 @@ public class BeanUtil {
                         //忽略map中的下划线和大小写
                         if (entry.getKey().replaceAll("_", "").equalsIgnoreCase(curField.getName())) {
                             destPropertyMap.put(curField.getName(), entry.getValue());
+                            continue;
                         }
                     }
 
@@ -55,17 +56,21 @@ public class BeanUtil {
                         continue;
                     Class<?> fieldTypeClass = field.getType();
                     value = convertValType(value, fieldTypeClass);
-                    try {
-                        clazz.getMethod(setMethodName, field.getType()).invoke(obj, value);
-                    } catch (NoSuchMethodException e) {
-                        e.printStackTrace();
+                    //当查询出的是数字但是定义类型是String的时候转换报错
+                    if (StringUtil.isNumeric(value.toString())) {
+                        value = String.valueOf(value);
                     }
+                    clazz.getMethod(setMethodName, field.getType()).invoke(obj, value.toString());
                 }
             }
         } catch (Exception e) {
-            logger.info(e.getStackTrace().toString());
+            e.printStackTrace();
         }
         return obj;
+    }
+
+    public static void copyProperties(Object source, Object target) {
+        BeanUtils.copyProperties(source, target);
     }
 
     /**
@@ -118,11 +123,5 @@ public class BeanUtil {
             return getClassField(superClass, fieldName);
         }
         return null;
-    }
-
-
-    public static void main(String[] args) throws Exception {
-        String pwt = BCrypt.hashpw("", BCrypt.gensalt());
-        System.out.println(pwt.toString());
     }
 }

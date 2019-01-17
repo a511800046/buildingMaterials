@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * @program: web_interface
+ * @program: saleSystem
  * @description: 基层service实现类
  * @author: chengy
  * @create: 2018-07-10 11:08

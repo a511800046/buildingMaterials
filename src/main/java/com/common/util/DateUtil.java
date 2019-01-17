@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
- * @program: web_interface
+ * @program: saleSystem
  * @description: 日期工具类
  * @author: chengy
  * @create: 2018-07-19 16:54
@@ -20,6 +20,7 @@ public class DateUtil {
 
     // 默认时间格式
     public static final String DATETIME_DEFAULT_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    public static final String DATETIME_DEFAULT_FORMAT_STRING = "yyyyMMddHHmmss";
 
     public static final String TIME_DEFAULT_FORMAT = "HH:mm:ss";
 
@@ -28,14 +29,17 @@ public class DateUtil {
 
     // 时间格式化
     private static DateFormat dateTimeFormat = null;
+    private static DateFormat dateTimeFormatString = null;
 
     private static DateFormat timeFormat = null;
 
     private static Calendar gregorianCalendar = null;
 
+
     static {
         dateFormat = new SimpleDateFormat(DATE_DEFAULT_FORMAT);
         dateTimeFormat = new SimpleDateFormat(DATETIME_DEFAULT_FORMAT);
+        dateTimeFormatString = new SimpleDateFormat(DATETIME_DEFAULT_FORMAT_STRING);
         timeFormat = new SimpleDateFormat(TIME_DEFAULT_FORMAT);
         gregorianCalendar = new GregorianCalendar();
     }
@@ -73,6 +77,16 @@ public class DateUtil {
      */
     public static String getDateTimeFormat(Date date) {
         return dateTimeFormat.format(date);
+    }
+
+    /**
+     * 日期格式化yyyyMMddHHmmss
+     *
+     * @param date
+     * @return
+     */
+    public static String getDateTimeFormatString(Date date) {
+        return dateTimeFormatString.format(date);
     }
 
     /**
@@ -129,6 +143,34 @@ public class DateUtil {
         return null;
     }
 
+    /**
+     * 时间格式化
+     *
+     * @param date
+     * @return
+     */
+    public static Date getDateTimeFormatString(String date) {
+        try {
+            return dateTimeFormatString.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 重新格式化时间字符串
+     *
+     * @param dateStr   原始时间字符串
+     * @param sourceFmt 原始时间格式
+     * @param targetFmt 目标时间格式
+     * @return 重新格式化后的时间
+     * @throws ParseException
+     */
+    public static String reFormateDateStr(String dateStr, String sourceFmt, String targetFmt) throws ParseException {
+        Date date = new SimpleDateFormat(sourceFmt).parse(dateStr);
+        return new SimpleDateFormat(targetFmt).format(date);
+    }
 
     /**
      * 获取当前日期星期一日期

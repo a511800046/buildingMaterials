@@ -1,7 +1,7 @@
 package com.common.constant;
 
 /**
- * @program: web_interface
+ * @program: saleSystem
  * @description: 数据库变量
  * @author: chengy
  * @create: 2018-07-09 16:37

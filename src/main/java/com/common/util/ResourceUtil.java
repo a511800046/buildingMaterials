@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * @program: web_interface
+ * @program: saleSystem
  * @description: properties读取类
  * @author: chengy
  * @create: 2018-07-09 17:22

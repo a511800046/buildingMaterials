@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * @program: web_interface
+ * @program: saleSystem
  * @description: 登陆用户dao层
  * @author: chengy
  * @create: 2018-11-05 12:24

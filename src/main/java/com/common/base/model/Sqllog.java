@@ -1,7 +1,7 @@
 package com.common.base.model;
 
 /**
- * @program: web_interface
+ * @program: saleSystem
  * @description: Sql日志model
  * @author: chengy
  * @create: 2018-07-09 17:17

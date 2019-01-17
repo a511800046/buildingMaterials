@@ -1,59 +1,61 @@
 <#-- @ftlvariable name="_csrf" type="org.springframework.security.web.csrf.CsrfToken" -->
 <#-- @ftlvariable name="error" type="java.util.Optional<String>" -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
+
 <head>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>建材ERP</title>
-    <!-- Bootstrap -->
-    <link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- Animate.css -->
-    <link href="/vendors/animate.css/animate.min.css" rel="stylesheet">
-    <!-- Custom Theme Style -->
-    <link href="/build/css/custom.min.css" rel="stylesheet">
+
+
+    <title>登录</title>
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <script>if (window.top !== window.self) {
+            window.top.location = window.location;
+        }</script>
 </head>
 
-<body class="login">
-<div>
-    <a class="hiddenanchor" id="signin"></a>
-    <div class="login_wrapper">
-        <div class="animate form login_form">
-            <section class="login_content">
-                <form id="subform" action='/login' method='POST'>
-                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                    <h1>登录</h1>
-                    <div>
-                        <input name='username' type="text" class="form-control" placeholder="用户名" required=""/>
-                    </div>
-                    <div>
-                        <input name='password' type="password" class="form-control" placeholder="密码" required=""/>
-                    </div>
+<body class="gray-bg">
+
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div>
+
+            <h1 class="logo-name">诚信建材</h1>
+
+        </div>
+        <h3>欢迎使用</h3>
+
+        <form class="m-t" id="subform" action='/login' method='POST'>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <div class="form-group">
+                <input name='username' type="text" class="form-control" placeholder="用户名" required="">
+            </div>
+            <div class="form-group">
+                <input name='password' type="password" class="form-control" placeholder="密码" required="">
+            </div>
+            <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
                 <#if error.isPresent()>
                     <div class="clearfix">
                         <p>用户名或密码错误，请重试！</p>
                     </div>
                 </#if>
-                    <div>
-                        <a class="btn btn-default submit" onclick="document.getElementById('subform').submit();">登录</a>
-                    </div>
-
-                    <div class="separator">
-                        <div>
-                            <h1><i class="fa fa-paw"></i>建材账务系统软件</h1>
-                        </div>
-                    </div>
-                </form>
-            </section>
+        </form>
         </div>
     </div>
-</div>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
 </body>
-</html>
 
+
+</html>

@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @program: BankInter
+ * @program: saleSystem
  * @description: 持久层基类
  * @author: chengy
  * @create: 2018-07-09 16:37
