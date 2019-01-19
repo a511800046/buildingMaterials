@@ -35,13 +35,11 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutUrl("/logout")
-                .deleteCookies("remember-me")
                 .logoutSuccessUrl("/login")
                 .permitAll()
                 .and()
-                .rememberMe()
-                .and()
-                .headers().frameOptions().disable();
+                .headers().frameOptions().disable()
+                .and().csrf().disable();
     }
 
     @Override

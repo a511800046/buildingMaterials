@@ -28,7 +28,7 @@
     <div class="error-desc">
         服务器好像出错了...
         <br/>您可以返回主页看看
-        <br/><a class="btn btn-primary m-t" href="index-2.html">主页</a>
+        <br/><a class="btn btn-primary m-t" href="/">主页</a>
     </div>
 </div>
 <script src="js/jquery.min.js?v=2.1.4"></script>

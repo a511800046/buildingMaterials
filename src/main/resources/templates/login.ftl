@@ -1,4 +1,3 @@
-<#-- @ftlvariable name="_csrf" type="org.springframework.security.web.csrf.CsrfToken" -->
 <#-- @ftlvariable name="error" type="java.util.Optional<String>" -->
 
 <!DOCTYPE html>
@@ -38,7 +37,6 @@
         <h3>欢迎使用</h3>
 
         <form class="m-t" action='/login' method='POST'>
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <div class="form-group">
                 <input name='username' type="text" class="form-control" placeholder="用户名" required="">
             </div>
