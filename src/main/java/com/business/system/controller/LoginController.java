@@ -27,17 +27,10 @@ public class LoginController {
         return "index";
     }
 
-    @RequestMapping("/index")
-    public String getHomePage() {
-        LOGGER.info("Getting index page");
-        return "index";
-    }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView getLoginPage(@RequestParam Optional<String> error) {
-        LOGGER.info("Getting login page");
-        error.ifPresent(u -> LOGGER.info(u));
-
+        LOGGER.info("Getting login page, error={}", error);
         return new ModelAndView("login", "error", error);
     }
 

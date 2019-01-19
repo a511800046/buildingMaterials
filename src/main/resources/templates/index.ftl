@@ -1,4 +1,5 @@
 <#-- @ftlvariable name="_csrf" type="org.springframework.security.web.csrf.CsrfToken" -->
+
 <!DOCTYPE html>
 <html>
 
@@ -33,8 +34,12 @@
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                <span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
-                                <span class="text-muted text-xs block">${currentUser.getUser().getUserName()}<b
-                                            class="caret"></b></span>
+                                <span class="text-muted text-xs block">
+                                     <#if currentUser??>
+                                         ${currentUser.getUser().getUserName()}
+                                     </#if>
+
+                                    <b class="caret"></b></span>
                                 </span>
                         </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">

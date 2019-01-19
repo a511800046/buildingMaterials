@@ -1,5 +1,6 @@
 <#-- @ftlvariable name="_csrf" type="org.springframework.security.web.csrf.CsrfToken" -->
 <#-- @ftlvariable name="error" type="java.util.Optional<String>" -->
+
 <!DOCTYPE html>
 <html>
 
@@ -36,7 +37,7 @@
         </div>
         <h3>欢迎使用</h3>
 
-        <form class="m-t" id="subform" action='/login' method='POST'>
+        <form class="m-t" action='/login' method='POST'>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <div class="form-group">
                 <input name='username' type="text" class="form-control" placeholder="用户名" required="">
@@ -45,7 +46,7 @@
                 <input name='password' type="password" class="form-control" placeholder="密码" required="">
             </div>
             <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
-                <#if error.isPresent()>
+            <#if error??  && error.isPresent()>
                     <div class="clearfix">
                         <p>用户名或密码错误，请重试！</p>
                     </div>

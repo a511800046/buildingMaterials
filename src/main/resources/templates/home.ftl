@@ -25,9 +25,6 @@
         <li><a href="/users">View all users</a></li>
     </#if>
     </ul>
-    <a href="/index" target="myFrameName">index</a>
-    <iframe id="myFrameId" name="myFrameName" scrolling="no">
-    </iframe>
 </nav>
 </body>
 </html>
