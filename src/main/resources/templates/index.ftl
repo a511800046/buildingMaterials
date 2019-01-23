@@ -349,9 +349,23 @@
     <div id="page-wrapper" class="gray-bg dashbard-1">
         <div class="row border-bottom">
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
-                        <i class="fa fa-bars"></i> </a>
+                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i
+                                class="fa fa-bars"></i> </a>
+
                 </div>
+                <ul class="nav navbar-top-links navbar-right right-sidebar animated fadeInRight ">
+                    <li class="hidden-xs">
+                    <li>
+                        <span id="mytime"></span>
+                    </li>
+                    <li>
+                        <a class="J_menuItem" href="form_avatar.html">修改信息</a>
+                    </li>
+                    <li>
+                        <a class="J_menuItem" onclick="logout();">安全退出</a>
+                    </li>
+                    </li>
+                </ul>
             </nav>
 
         </div>
@@ -366,7 +380,8 @@
             <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
             </button>
             <div class="btn-group roll-nav roll-right">
-                <button class="dropdown J_tabClose" data-toggle="dropdown">关闭操作<span class="caret"></span>
+                <button class=" dropdown J_tabClose " data-toggle="dropdown" id="index-close">关闭操作<span
+                            class="caret"></span>
 
                 </button>
                 <ul role="menu" class="dropdown-menu dropdown-menu-right">
@@ -376,14 +391,15 @@
                     </li>
                 </ul>
             </div>
-            <a onclick="logout();" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+            <#--<a  class="roll-nav roll-right J_tabExit"> </a>-->
         </div>
         <div class="row J_mainContent" id="content-main">
             <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="index_v148b2.html?v=4.0"
                     frameborder="0" data-id="index_v1.html" seamless></iframe>
         </div>
         <div class="footer">
-            <div class="pull-right">&copy; 2014-2015 <a href="http://www.zi-han.net/" target="_blank">zihan's blog</a>
+            <div class="pull-right">&copy; 2018-2019 <a href="https://blog.csdn.net/a511800046" target="_blank">cheng's
+                    blog</a>
             </div>
         </div>
     </div>
@@ -414,10 +430,10 @@
         year = nowtime.getFullYear();
         month = nowtime.getMonth() + 1;
         date = nowtime.getDate();
-        document.getElementById("mytime").innerText = year + "年" + month + "月" + date + " " + nowtime.toLocaleTimeString();
+        document.getElementById("mytime").innerText = year + "年" + month + "月" + date + "日  " + nowtime.toLocaleTimeString();
     }
 
-    //setInterval("showTime()", 1000);
+    setInterval("showTime()", 1000);
 </script>
 
 </html>

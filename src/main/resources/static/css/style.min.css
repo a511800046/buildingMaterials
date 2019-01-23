@@ -106,6 +106,7 @@ body.body-small .navbar-top-links li:last-child {
     top: 100%;
     z-index: 1000;
     border-radius: 0;
+    right: -60px;
     box-shadow: 0 0 3px rgba(86, 96, 117, .3)
 }
 

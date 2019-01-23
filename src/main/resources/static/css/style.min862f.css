@@ -106,6 +106,7 @@ body.body-small .navbar-top-links li:last-child {
     top: 100%;
     z-index: 1000;
     border-radius: 0;
+    right: -60px;
     box-shadow: 0 0 3px rgba(86, 96, 117, .3)
 }
 
@@ -3037,7 +3038,7 @@ ol.unstyled, ul.unstyled {
     overflow: hidden;
     padding: 10px 20px;
     margin: 0 -15px;
-    height: 36px
+    height: 32px
 }
 
 .footer.fixed_full {
@@ -3163,6 +3164,15 @@ nav.page-tabs .page-tabs-content {
     right: 60px;
     width: 80px;
     padding: 0
+}
+
+#index-close {
+    width: 140px;
+    right: 0px;
+    border-left: solid 1px #eee;
+    background: #fff;
+    height: 40px;
+    outline: 0
 }
 
 .roll-right.btn-group button {
