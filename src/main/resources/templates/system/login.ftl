@@ -41,7 +41,7 @@
                 <input name='username' type="text" class="form-control" placeholder="用户名" required="">
             </div>
             <div class="form-group">
-                <input name='password' type="password" class="form-control" placeholder="密码" required="">
+                <input name='password' type="password" class="form-control" placeholder="密码">
             </div>
             <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
             <#if error??  && error.isPresent()>
@@ -54,6 +54,7 @@
     </div>
 <script src="js/jquery.min.js?v=2.1.4"></script>
 <script src="js/bootstrap.min.js?v=3.3.6"></script>
+
 </body>
 
 

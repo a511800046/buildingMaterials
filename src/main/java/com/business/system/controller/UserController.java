@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -17,6 +18,12 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 import java.util.NoSuchElementException;
 
+/**
+ * @program: saleSystem
+ * @description: 用户控制层，接收对用户操作的请求
+ * @author: chengy
+ * @create: 2018-11-14 09:18
+ **/
 @Controller
 public class UserController {
 
@@ -28,6 +35,16 @@ public class UserController {
     public UserController(UserService userService, UserCreateFormValidator userCreateFormValidator) {
         this.userService = userService;
         this.userCreateFormValidator = userCreateFormValidator;
+    }
+
+    /**
+     * 查看当前用户的相关信息，如密码，姓名等
+     *
+     * @return
+     */
+    @RequestMapping("/currentUser/currentUserDetail")
+    public String getCurrentUserDetailPage(Authentication authentication) {
+        return "system/currentUserDetail";
     }
 
     @InitBinder("form")

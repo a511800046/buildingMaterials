@@ -1,8 +1,8 @@
+<#include  "/common/page_common.ftl" />
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 
 
-<!-- Mirrored from www.zi-han.net/theme/hplus/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:16:41 GMT -->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -12,11 +12,6 @@
     <title>主页</title>
 
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
-    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
 </head>
 
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
@@ -34,11 +29,11 @@
                                     <h2> <span class="block"><strong class="font-bold"><small>欢迎</small></strong></span>
                                 <span class="text-muted text-xs block">
                                      <#if currentUser??>
-                                        ${currentUser.getRole().getRoleName()}</h2>
+                                        ${currentUser.getUser().getUserName()}</h2>
                                      </#if>
 
                                     </span>
-                                </span>
+                        </span>
 
 
                     </div>
@@ -359,10 +354,10 @@
                         <span id="mytime"></span>
                     </li>
                     <li>
-                        <a class="J_menuItem" href="form_avatar.html">修改信息</a>
+                        <a class="J_menuItem" href="/currentUser/currentUserDetail">修改信息</a>
                     </li>
                     <li>
-                        <a class="J_menuItem" onclick="logout();">安全退出</a>
+                        <a class="J_menuItem" onclick="system_logout();">安全退出</a>
                     </li>
                     </li>
                 </ul>
@@ -374,7 +369,7 @@
             </button>
             <nav class="page-tabs J_menuTabs">
                 <div class="page-tabs-content">
-                    <a href="javascript:" class="active J_menuTab" data-id="index_v1.html">首页</a>
+                    <a href="javascript:" class="active J_menuTab" data-id="/system/homePage">首页</a>
                 </div>
             </nav>
             <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
@@ -391,11 +386,10 @@
                     </li>
                 </ul>
             </div>
-            <#--<a  class="roll-nav roll-right J_tabExit"> </a>-->
         </div>
         <div class="row J_mainContent" id="content-main">
-            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="index_v148b2.html?v=4.0"
-                    frameborder="0" data-id="index_v1.html" seamless></iframe>
+            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="/system/homePage"
+                    frameborder="0" data-id="/system/homePage" seamless></iframe>
         </div>
         <div class="footer">
             <div class="pull-right">&copy; 2018-2019 <a href="https://blog.csdn.net/a511800046" target="_blank">cheng's
@@ -405,35 +399,11 @@
     </div>
     <!--右侧部分结束-->
 </div>
-<script src="js/jquery.min.js?v=2.1.4"></script>
-<script src="js/bootstrap.min.js?v=3.3.6"></script>
-<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-<script src="js/plugins/layer/layer.min.js"></script>
-<script src="js/hplus.min.js?v=4.1.0"></script>
-<script type="text/javascript" src="js/contabs.min.js"></script>
-<script src="js/plugins/pace/pace.min.js"></script>
-</body>
-
 <script language="JavaScript">
-    function logout() {
-        var form = document.createElement('form');
-        form.action = 'logout';
-        form.method = 'post';
-        $(document.body).append(form);
-        form.submit();
-
-    }
-
-    function showTime() {
-        nowtime = new Date();
-        year = nowtime.getFullYear();
-        month = nowtime.getMonth() + 1;
-        date = nowtime.getDate();
-        document.getElementById("mytime").innerText = year + "年" + month + "月" + date + "日  " + nowtime.toLocaleTimeString();
-    }
-
-    setInterval("showTime()", 1000);
+    $(document).ready(function () {
+        setInterval("showTime()", 1000);
+        toastr.success("巴拉巴拉", "标题")
+    })
 </script>
 
 </html>

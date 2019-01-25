@@ -21,18 +21,39 @@ public class LoginController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
 
+    /**
+     * 登陆成功后的首页
+     *
+     * @return index.ftl
+     */
     @RequestMapping("/")
     public String getIndexPage() {
         LOGGER.info("Getting index page");
-        return "index";
+        return "system/index";
     }
 
 
+    /**
+     * 登陆页面，通过security框架控制
+     *
+     * @param error 当登陆名或密码不符时，通过error来进行页面的提示
+     * @return login.ftl
+     */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView getLoginPage(@RequestParam Optional<String> error) {
         LOGGER.info("Getting login page, error={}", error);
-        return new ModelAndView("login", "error", error);
+        return new ModelAndView("system/login", "error", error);
     }
 
+    /**
+     * 登陆到系统后iframem默认的首页
+     *
+     * @return 返回首页 system/homePage.ftl
+     */
+    @RequestMapping("/system/homePage")
+    public String getHomePage() {
+        LOGGER.info("Getting Home page");
+        return "system/homePage";
+    }
 
 }
