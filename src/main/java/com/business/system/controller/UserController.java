@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -43,9 +42,10 @@ public class UserController {
      * @return
      */
     @RequestMapping("/currentUser/currentUserDetail")
-    public String getCurrentUserDetailPage(Authentication authentication) {
+    public String getCurrentUserDetailPage() {
         return "system/currentUserDetail";
     }
+
 
     @InitBinder("form")
     public void initBinder(WebDataBinder binder) {

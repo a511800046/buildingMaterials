@@ -1,3 +1,5 @@
+<#include  "/common/pageCommon.ftl" />
+<#include  "/common/pageForm.ftl" />
 <#-- @ftlvariable name="currentUser" type="com.business.system.model.CurrentUser" -->
 <!DOCTYPE html>
 <html>
@@ -12,12 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>用户详细信息</title>
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link href="../css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
-    <link href="../css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
-    <link href="../css/plugins/iCheck/custom.css" rel="stylesheet">
-    <link href="../css/animate.min.css" rel="stylesheet">
-    <link href="../css/style.min862f.css?v=4.1.0" rel="stylesheet">
 
 </head>
 
@@ -74,7 +70,8 @@
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
-                                <button class="btn btn-primary" type="submit">保存内容</button>
+                                <#--<button class="btn btn-primary" type="submit">保存内容</button>-->
+                                <button class="btn btn-primary" onclick="onClickTest()">保存内容</button>
                             </div>
                         </div>
                     </form>
@@ -84,27 +81,29 @@
     </div>
 </div>
 
-<script src="../js/jquery.min.js?v=2.1.4"></script>
-<script src="../js/bootstrap.min.js?v=3.3.6"></script>
-<script src="../js/content.min.js?v=1.0.0"></script>
-<script src="../js/plugins/iCheck/icheck.min.js"></script>
-<script src="../js/system/index.js"></script>
+
 <script src="../js/system/currentUserDetail.js"></script>
 <script>
-    $(document).ready(function () {
-        init();
-        $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",})
-    });
-
     /**
      * 页面初始化
      */
     function init() {
+        //当不是系统管理员的权限的时候，不允许修改角色
         $("input[name='role'][value='${currentUser.getRole().getRoleType()}']").attr("checked", true);
         if ('${currentUser.getRole().getRoleType()}' != 'admin') {
             $("input[name='role']").attr("disabled", true);
         }
     }
+
+    function onClickTest() {
+        get("/users", null, false);
+    }
+
+
+    $(document).ready(function () {
+        init();
+        $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",})
+    });
 </script>
 </body>
 

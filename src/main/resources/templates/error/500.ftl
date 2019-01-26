@@ -12,7 +12,7 @@
 
 
     <title>内部错误</title>
-    <link href="favicon.ico" rel="shortcut icon">
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
     <link href="../css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
     <link href="../css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
     <link href="../css/animate.min.css" rel="stylesheet">

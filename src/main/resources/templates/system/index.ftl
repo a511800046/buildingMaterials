@@ -1,4 +1,5 @@
-<#include  "/common/page_common.ftl" />
+<#include  "/common/pageCommon.ftl" />
+<#include  "/common/pageMessage.ftl" />
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 
@@ -399,10 +400,11 @@
     </div>
     <!--右侧部分结束-->
 </div>
+<script src="../js/system/index.js"></script>
 <script language="JavaScript">
     $(document).ready(function () {
         setInterval("showTime()", 1000);
-        toastr.success("巴拉巴拉", "标题")
+        messageShowSucess("欢迎登陆系统！", "登陆");
     })
 </script>
 
