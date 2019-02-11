@@ -8,14 +8,14 @@
     });
 
     // ajax封装
-    function ajax(url, data, success, alone, async, type, dataType, layerIndex, error) {
+    function ajax(url, data, success, alone, async, type, dataType, error) {
         // debugger;
         var type = type || 'post';//请求类型
         var dataType = dataType || 'json';//接收数据类型
         var async = async || false;//异步请求
         var alone = alone || false;//独立提交（一次有效的提交）
         var success = success;//成功回调函数
-        var layerIndex = layerIndex;
+        var layerIndex;
         var error = error || function (data) {
             console.error('请求失败');
             /*data.status;//错误状态码*/
@@ -37,7 +37,6 @@
         if (!alone) {
             ajaxStatus = true;
         }
-
         $.ajax({
             'url': url,
             'data': data,
@@ -48,8 +47,13 @@
             'error': error,
             'scriptCharset': 'utf-8',
             'jsonpCallback': 'jsonp' + (new Date()).valueOf().toString().substr(-4),
+            'beforeSend': function () {
+                layerIndex = layer.msg('加载中', {//通过layer插件来进行提示正在加载
+                    icon: 16,
+                    shade: 0.01
+                });
+            },
             'complete': function () {
-                console.log(layerIndex);
                 layer.close(layerIndex);
             }
         });
@@ -60,39 +64,23 @@
         var form = document.getElementById(form);
         var url = form.action;
         var data = serialize(form);
-        var layerIndex = layer.msg('加载中', {//通过layer插件来进行提示正在加载
-            icon: 16,
-            shade: 0.01
-        });
-        ajax(url, data, success, alone, false, 'post', 'json', layerIndex);
+        ajax(url, data, success, alone, false, 'post', 'json');
     }
 
 
     // ajax提交(post方式提交)
     function post(url, data, success, alone) {
-        var layerIndex = layer.msg('加载中', {//通过layer插件来进行提示正在加载
-            icon: 16,
-            shade: 0.01
-        });
-        ajax(url, data, success, alone, false, 'post', 'json', layerIndex);
+        ajax(url, data, success, alone, false, 'post', 'json');
     }
 
     // ajax提交(get方式提交)
     function get(url, success, alone) {
-        var layerIndex = layer.msg('加载中', {//通过layer插件来进行提示正在加载
-            icon: 16,
-            shade: 0.01
-        });
-        ajax(url, {}, success, alone, false, 'get', 'json', layerIndex);
+        ajax(url, {}, success, alone, false, 'get', 'json');
     }
 
     // jsonp跨域请求(get方式提交)
     function jsonp(url, success, alone) {
-        var layerIndex = layer.msg('加载中', {//通过layer插件来进行提示正在加载
-            icon: 16,
-            shade: 0.01
-        });
-        ajax(url, {}, success, alone, false, 'get', 'jsonp', layerIndex);
+        ajax(url, {}, success, alone, false, 'get', 'jsonp');
     }
 
     //form序列化
