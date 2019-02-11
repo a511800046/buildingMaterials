@@ -28,7 +28,6 @@ public class LoginController {
      */
     @RequestMapping("/")
     public String getIndexPage() {
-        LOGGER.info("Getting index page");
         return "system/index";
     }
 
@@ -41,7 +40,6 @@ public class LoginController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView getLoginPage(@RequestParam Optional<String> error) {
-        LOGGER.info("Getting login page, error={}", error);
         return new ModelAndView("system/login", "error", error);
     }
 
@@ -52,7 +50,6 @@ public class LoginController {
      */
     @RequestMapping("/system/homePage")
     public String getHomePage() {
-        LOGGER.info("Getting Home page");
         return "system/homePage";
     }
 

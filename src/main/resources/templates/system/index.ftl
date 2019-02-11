@@ -355,7 +355,7 @@
                         <span id="mytime"></span>
                     </li>
                     <li>
-                        <a class="J_menuItem" href="/currentUser/currentUserDetail">修改信息</a>
+                        <a class="J_menuItem" href="/currentUser/getCurrentUserDetailPage">修改信息</a>
                     </li>
                     <li>
                         <a class="J_menuItem" onclick="system_logout();">安全退出</a>

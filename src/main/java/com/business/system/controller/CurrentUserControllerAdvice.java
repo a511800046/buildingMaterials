@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * @program: saleSystem
+ * @description: currentUser方法执行之前执行
+ * @author: chengy
+ * @create: 2018-11-14 09:18
+ **/
 @ControllerAdvice
 public class CurrentUserControllerAdvice {
 
@@ -16,7 +22,9 @@ public class CurrentUserControllerAdvice {
 
     @ModelAttribute("currentUser")
     public CurrentUser getCurrentUser(Authentication authentication, HttpServletRequest httpServletRequest) {
-        System.out.println(httpServletRequest.getRequestURI());
+        if (authentication != null && !httpServletRequest.getRequestURI().equals("/error")) {
+            LOGGER.info("用户[{}] 模块[{}]", ((CurrentUser) authentication.getPrincipal()).getUser().getUserName(), httpServletRequest.getRequestURI());
+        }
         return (authentication == null) ? null : (CurrentUser) authentication.getPrincipal();
     }
 

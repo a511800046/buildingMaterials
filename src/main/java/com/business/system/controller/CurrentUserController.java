@@ -3,6 +3,7 @@ package com.business.system.controller;
 import com.business.system.model.UserCreateForm;
 import com.business.system.model.UserCreateFormValidator;
 import com.business.system.service.UserService;
+import com.common.constant.JsonResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,35 +16,41 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 /**
  * @program: saleSystem
- * @description: 用户控制层，接收对用户操作的请求
+ * @description: 用户控制层，接收对当前用户操作的请求
  * @author: chengy
  * @create: 2018-11-14 09:18
  **/
 @Controller
-public class UserController {
+public class CurrentUserController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CurrentUserController.class);
     private final UserService userService;
     private final UserCreateFormValidator userCreateFormValidator;
 
     @Autowired
-    public UserController(UserService userService, UserCreateFormValidator userCreateFormValidator) {
+    public CurrentUserController(UserService userService, UserCreateFormValidator userCreateFormValidator) {
         this.userService = userService;
         this.userCreateFormValidator = userCreateFormValidator;
     }
 
     /**
-     * 查看当前用户的相关信息，如密码，姓名等
-     *
-     * @return
+     * 修改信息页面
+     * @return system/currentUserDetail
      */
-    @RequestMapping("/currentUser/currentUserDetail")
+    @RequestMapping("/currentUser/getCurrentUserDetailPage")
     public String getCurrentUserDetailPage() {
         return "system/currentUserDetail";
+    }
+
+    @RequestMapping("/currentUser/saveCurrentUserInfo")
+    @ResponseBody
+    public JsonResult saveCurrentUserInfo(@RequestParam Map<String, String> parMap) {
+        return new JsonResult(JsonResult.ERROR, "修改成功！");
     }
 
 

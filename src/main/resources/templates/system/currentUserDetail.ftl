@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>用户详细信息</title>
-
+    <script src="../js/system/currentUserDetail.js"></script>
 
 </head>
 
@@ -27,27 +27,30 @@
                     <h5>登陆用户基本信息</h5>
                 </div>
                 <div class="ibox-content">
-                    <form method="pose" class="form-horizontal" action="">
+                    <!-- /currentUser/saveCurrentUserInfo-->
+                    <form method="pose" class="form-horizontal" action="/currentUser/saveCurrentUserInfo"
+                          id="CurrentUserInfoForm" name="CurrentUserInfoForm">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">登陆用户名</label>
 
                             <div class="col-sm-10">
                                 <p class="form-control-static">${currentUser.getUser().getUserId()}</p>
-                                <input type="hidden" value="${currentUser.getUser().getUserId()}"/>
+                                <input type="hidden" name="userId" value="${currentUser.getUser().getUserId()}"/>
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">用户名</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" value="${currentUser.getUser().getUserName()}"/>
+                                <input type="text" class="form-control" name="userName"
+                                       value="${currentUser.getUser().getUserName()}"/>
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">密码</label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" name="password"
+                                <input type="password" class="form-control" name="passWord"
                                        value="${currentUser.getUser().getPassWord()}"/>
                             </div>
                         </div>
@@ -71,7 +74,7 @@
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
                                 <#--<button class="btn btn-primary" type="submit">保存内容</button>-->
-                                <button class="btn btn-primary" onclick="onClickTest()">保存内容</button>
+                                <input class="btn btn-primary" onclick="onClickTest1()" type="button" value="保存内容"/>
                             </div>
                         </div>
                     </form>
@@ -82,7 +85,6 @@
 </div>
 
 
-<script src="../js/system/currentUserDetail.js"></script>
 <script>
     /**
      * 页面初始化
@@ -90,19 +92,33 @@
     function init() {
         //当不是系统管理员的权限的时候，不允许修改角色
         $("input[name='role'][value='${currentUser.getRole().getRoleType()}']").attr("checked", true);
+        $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",});
         if ('${currentUser.getRole().getRoleType()}' != 'admin') {
             $("input[name='role']").attr("disabled", true);
         }
     }
 
-    function onClickTest() {
-        get("/users", null, false);
+    function onClickTest1() {
+        // layer.prompt({title: '输入任何口令，并确认', formType: 1}, function(pass, index){
+        //     layer.close(index);
+        //     layer.prompt({title: '随便写点啥，并确认', formType: 2}, function(text, index){
+        //         layer.close(index);
+        //         layer.msg('演示完毕！您的口令：'+ pass +'<br>您最后写下了：'+text);
+        //     });
+        // });
+        submitAjax("CurrentUserInfoForm", function (data) {
+            //alert(data);
+            for (var tempi = 1; tempi <= 1000; tempi++) {
+                console.log(tempi);
+            }
+
+        }, false);
+
     }
 
 
     $(document).ready(function () {
         init();
-        $(".i-checks").iCheck({checkboxClass: "icheckbox_square-green", radioClass: "iradio_square-green",})
     });
 </script>
 </body>

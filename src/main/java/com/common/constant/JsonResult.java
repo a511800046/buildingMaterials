@@ -37,15 +37,21 @@ public class JsonResult implements Serializable {
     }
 
     public JsonResult(Throwable e) {
-        state = ERROR;
-        data = null;
-        message = e.getMessage();
+        this.state = ERROR;
+        this.data = null;
+        this.message = e.getMessage();
     }
 
     public JsonResult(Object data) {
-        state = SUCCESS;
+        this.state = SUCCESS;
         this.data = data;
-        message = "";
+        this.message = "";
+    }
+
+    public JsonResult(int state, String message) {
+        this.state = state;
+        this.message = message;
+        this.data = null;
     }
 
     public int getState() {
