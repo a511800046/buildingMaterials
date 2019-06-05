@@ -1,3 +1,26 @@
+select * from dba_data_files;
+--/data/oracle/oradata/orcl/saleSystem01.dbf
+
+create tablespace sale_system
+datafile '/data/oracle/oradata/orcl/saleSystem01.dbf'
+size 2G
+autoextend on
+next 50M maxsize unlimited ;
+
+
+create temporary tablespace sale_system_temp
+tempfile '/data/oracle/oradata/orcl/saleSystemTemp.dbf'
+size 2G;
+
+create user salesystem
+identified by "salesystem"
+default tablespace sale_system
+temporary tablespace sale_system_temp;
+
+grant connect to salesystem;
+grant dba to salesystem;
+grant unlimited tablespace to salesystem;
+
 create table INFO_RESOURCE
 (
   RESOURCE_ID   VARCHAR2(32) not null
